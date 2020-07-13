@@ -1,0 +1,433 @@
+@import url('https://fonts.googleapis.com/css2?family=DM+Serif+Text&family=Lato:wght@300;400;700;900&display=swap');
+
+*{
+    margin: 0;
+    padding: 0;
+    outline: none;
+    box-sizing: border-box;
+    list-style: none;
+    text-decoration: none;
+}
+
+body{
+    background-color: black;
+    font-family: 'Lato', sans-serif;
+}
+.container{
+    width: 100%;
+    padding: 0 2rem;
+    margin: 0 auto;
+}
+.text-container{
+    padding: 3rem 1rem;
+    color: #ffffff;
+    margin-bottom: 3rem;
+}
+
+.text-container h1{
+    display: block;
+    color: #ffffff;
+    text-align: center;
+    font-weight: 700;
+    font-size: 2rem;
+    font-family: 'DM Serif Text', serif;
+    text-transform: uppercase;
+    letter-spacing: 0.3em;
+    margin-bottom: 1rem;
+}
+.text-container .date{
+    float: right;
+    border-bottom: 5px solid rgb(22, 24, 148);
+    text-transform: capitalize;
+    letter-spacing: 0.1em;
+    font-size: 1em;
+}
+.sectionWraper{
+    display: flex;
+    justify-content: center;
+}
+.sectionWraper .row{
+    width: 100%;
+    display: flex;
+    justify-content: space-between;
+    flex-direction: row;
+}
+.clockWraper .choice-info{
+    color: #fff;
+    width: 100%;
+    margin-bottom: 0.2rem;
+    text-align: center;
+}
+.current-time{
+    font-size: 0.9rem;
+    font-weight: 400;
+    font-family: 'Lato', serif;
+    text-transform: capitalize;
+    letter-spacing: 1px;
+    text-align: center;
+}
+
+.clockWraper .time {
+    display: flex;
+    justify-content: center;
+    margin-bottom: 4rem;
+}
+
+.clockWraper .time .box {
+    position: relative;
+    margin: 0 5px;
+    -webkit-box-reflect: below 1px linear-gradient(transparent, #000);
+}
+
+.clockWraper .time div span {
+    position: relative;
+    width: 130px;
+    height: 110px;
+    background-color: rgb(22, 24, 148);
+    color: #fff;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    z-index: 10;
+    font-size: 4em;
+    box-shadow: 0 0 0 1px rgba(0, 0, 0, 0.5);
+}
+
+.clockWraper .time div span:nth-child(2) {
+    height: 30px;
+    font-size: 0.7em;
+    letter-spacing: 0.2em;
+    font-family: 'Lato', sans-serif;
+    font-weight: 400;
+    z-index: 9;
+    box-shadow: none;
+    background-color: #d61284;
+    text-transform: uppercase;
+}
+.clockWraper .time div:last-child  span {
+    background-color: #ff006a;
+    margin-top: 2rem;
+    text-transform: uppercase;
+    height: 60px;
+    width: 65px;
+    position: relative;
+    font-size: 2em;
+    top: 34%;
+}
+
+.sectionWraper .img-wraper{
+    width: 100%;
+    display: flex;
+    justify-content: center;
+}
+.img-wraper .img-container {
+    width: 90%;
+    margin: 0;
+}
+.img-container h2{
+    font-size: 1.2rem;
+    font-family: 'Lato', sans-serif;
+    font-weight: 400;
+    text-align: center;
+    text-transform: capitalize;
+    margin-bottom: 1rem;
+    color: #fff;
+}
+
+.img-container .project-img{
+	width: 100%;
+	height: 15rem;
+	background-size: 100% auto;
+	margin-bottom: 2rem;
+	/* box-shadow: 0.1rem 0.2rem 0.3rem rgba(207, 204, 204, 0.781); */
+	background-position: center;
+    background-repeat: no-repeat;
+    filter: grayscale(0);
+	transition: all 3s;
+}
+.img-container .project-img:hover {
+    filter: grayscale(100%);
+    /* background-position: bottom; */
+}
+.row .input-container {
+    width: 100%;
+}
+.input-container .table-wraper{
+    color: #fff;
+}
+table {
+    width: 90%
+}
+
+thead {
+    background-color: rgb(22, 24, 148);
+    height: 60px;
+    font-size: 1.1em;
+    letter-spacing: 0.1em;
+    font-family: 'Lato', sans-serif;
+    font-weight: 400;
+}
+
+.table-body{
+    color: #fff;
+    font-weight: bold;
+    background-color: #d61284;
+    text-align: start;
+}
+.table-body tr{
+    height: 30px;
+    box-shadow: none;
+    background-color: #d61284;
+    text-transform: uppercase;
+}
+.table-body tr td{
+    font-size: 0.7em;
+    font-size: 0.7em;
+    letter-spacing: 0.2em;
+    font-family: 'Lato', sans-serif;
+    text-align: center;
+    font-weight: 400;
+}
+.table-wraper table,
+.table-wraper th,
+.table-wraper td {
+    border: 2px solid black;
+    border-collapse: collapse;
+    padding: 0.2rem;
+}
+.table-body .edit-button{
+    color: rgb(240, 240, 245);
+    width: 80px; 
+    margin-top: 6px;
+    /* border: 2px solid rgb(22, 24, 148); */
+    /* background-color: transparent; */
+    /* border-bottom: 1px solid rgb(22, 24, 148); */
+    border-radius: 0.5rem;
+    background-color: rgb(22, 24, 148)
+}
+.table-body .delete-button{
+    color: rgb(240, 240, 245);
+    width: 80px; 
+    margin-top: 6px;
+    /* border: 2px solid rgb(22, 24, 148); */
+    /* background-color: transparent; */
+    /* border-bottom: 1px solid rgb(22, 24, 148); */
+    border-radius: 0.5rem;
+    background-color: #ff006a;
+}
+.input-container .input-wraper{
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    margin-bottom: 3rem;
+}
+
+.input-container .form{
+    text-align: center;
+    position: relative;
+}
+.form select option{
+    background-color: #000;
+    font-size: 1.5rem;
+    font-family: 'Lato', sans-serif;
+    font-weight: 400;
+}
+.form .number-wraper{
+    width: 70%;
+    padding: 0.1rem 3px;
+    margin: 0 auto;
+    margin-bottom: 0.5rem;
+}
+.number-wraper .input-no{
+    padding: 0.1rem 3px;
+    font-size: 1.5rem;
+    font-family: 'Lato', sans-serif;
+    font-weight: 400;
+    border: none;
+    border-bottom: 2px solid rgb(22, 24, 148);
+    background-color: inherit;
+    color:  #fff;
+}
+.number-wraper .sx{
+    width: 80px;
+}
+
+.error{
+    color: red;
+    margin-bottom: 2rem;
+    visibility: visible;
+    display: block;
+}
+.success{
+    color: green;
+    margin-bottom: 2rem;
+    visibility: visible;
+    display: block;
+}
+.message{
+    margin-bottom: 2rem;
+    visibility: hidden;
+    display: block;
+}
+.input-container .form .input{
+    width: 70%;
+    padding: 0.4rem 3px;
+    margin-bottom: 1rem;
+    font-size: 1.5rem;
+    font-family: 'Lato', sans-serif;
+    font-weight: 400;
+    border: none;
+    border-bottom: 2px solid rgb(22, 24, 148);
+    background-color: inherit;
+    color:  #fff;
+}
+.input-container .form option:nth-child(1){
+    background-color: #555;
+}
+.input-container .button-wraper{
+    display: flex;
+    justify-content: space-evenly;
+    flex-direction: row;
+}
+.button-wraper button{
+    font-size: 1.4rem;
+    font-weight: 400;
+    font-family: 'Lato', sans-serif;
+    width: 7rem;
+    height: 3rem;
+    background-color: inherit;
+    cursor: pointer;
+    color: #ccc;
+    border: none;
+    border-bottom: 1px solid  #d61284;
+    transition: background-color 0.3s;
+    border-radius: 1px;
+}
+.button-wraper button:hover{
+    background-color:  #d61284;
+}
+footer{
+    margin-top: 5rem;
+    padding: 0 1rem;
+}
+
+.footer{
+    margin-top: 1rem;
+    text-align: center;
+}
+
+.footer .copyright{
+    text-align: center;
+    font-size: 0.91rem;
+    color: #fff
+}
+.copyright a{
+    color: darkgray;
+}
+
+@media(max-width: 991px){
+    .text-container h1{
+        letter-spacing: 0.2em;
+    }
+
+    .sectionWraper .row{
+        flex-direction: column;
+    }
+    .row .input-container{
+        display: flex;
+        margin-bottom: 3rem;
+    }
+    .input-container .input-wraper{
+        width: 85%;
+    }
+    .input-container .table-wraper{
+        width: 100%;
+    }
+    .table-wraper table{
+        margin: 0 auto;
+    }
+    .clockWraper .time .box {
+        position: relative;
+        margin: 0 5px;
+        -webkit-box-reflect: inherit;
+    }
+    .img-wraper .img-container{
+        width: 70%;
+    }
+}
+
+@media(max-width: 767px) {
+    .text-container h1{
+        letter-spacing: 0.1em;
+    }
+    .row .input-container{
+        flex-flow: column;
+        margin-bottom: 3rem;
+    }
+    .input-container .input-wraper{
+        width: 100%;
+    }
+    .input-container .form{
+        width: 100%;
+    }
+}
+
+@media(max-width: 560px) {
+    .button-wraper button{
+        margin: 0 1rem;
+        font-size: 1.2rem;
+        width: 4rem;
+    }
+    .input-container .form .input,
+    .number-wraper .input-no{
+        font-size: 1.3rem;
+    }
+    table{
+        width: 100%;
+    }
+    thead{
+        font-size: 1em;
+    }
+    .clockWraper .time div span{
+        width: 90px;
+        height: 70px;
+        font-size: 2em;
+    }
+    element {
+
+    }
+    .clockWraper .time div:last-child span {
+        height: 35px;
+        width: 40px;
+        font-size: 1em;
+        top: 34%;
+    }
+    .img-wraper .img-container{
+        width: 100%;
+    }
+}
+@media(max-width: 360px){
+    .clockWraper .time div span{
+        width: 70px;
+        height: 40px;
+        font-size: 1.1em;
+    }
+    .clockWraper .time div:last-child span {
+        height: 25px;
+        width: 30px;
+        top: 5%;
+    }
+    .clockWraper .time div span:nth-child(2) {
+        font-size: 0.6em;
+        height: 20px;
+    }
+    .img-wraper .img-container{
+        width: 100%;
+    }
+}
+@media(max-width: 250px){
+    .container{
+        display: none;
+        visibility: hidden;
+    }
+}

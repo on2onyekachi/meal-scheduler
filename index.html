@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Kachi Alarm Clock</title>
+    <link rel="stylesheet" href="stylesheet/css/main.css">
+</head>
+<body onload="init()">
+    <!-- HEADER SECTION -->
+        <header class="container">
+            <div class="text-container">
+                <h1>the-meal scheduler</h1>
+                <div class="date" id="showDate"></div>
+            </div>
+        </header>
+    <!-- #HEADER SECTION -->
+        <main class="container">
+            <section class="sectionWraper">
+                <div class="row">
+                    
+                    <div class="input-container">
+                        <div class="input-wraper">
+                            <form class="form" id="form-wraper" action="">
+                                <small class="message" id="error-message">There's a problem with your input</small>
+                                <div class="number-wraper">
+                                    <input id="time-choice" type="number" class="input-no sx"  maxlength="2" name="qty" min="1" max="12" placeholder="8">
+                                   
+                                    <select class="input-no" name="section-choice" id="section-choice">
+                                        <option selected value="am">AM</option>
+                                        <option value="pm">PM</option>
+                                    </select>
+                                </div>
+                                <input id="food-choice" type="" class="input"  maxlength="10" placeholder="Type in food. e.g rice">
+                                <select name="FOOD" id="food-section-choice" class="input">
+                                    <option selected></option>
+                                    <option value="breakfast">Breeakfast</option>
+                                    <option value="lunch">Lunch</option>
+                                    <option value="dinner">Dinner</option>
+                                </select>
+                                <div class="button-wraper">
+                                    <button onclick="addClick(event)" id="add-meal">Add</button>
+                                    <button onclick="removeAdd(event)" id="clear">Clear</button>
+                                </div>
+                            </form>
+                        </div>
+                        <div class="table-wraper">
+                            <h2 class="current-time">Your Schedule</h2>
+                            <table>
+                                <thead>
+                                    <th>Meal</th>
+                                    <th>Session</th>
+                                    <th>Time</th>
+                                    <th>Option</th>
+                                </thead>
+                                <tbody id="table-body" class="table-body"></tbody>
+                            </table>
+                        </div>
+                    </div>
+
+                    <div class="clockWraper">
+                        <div class="choice-info">
+                            <h2 class="current-time">Your current time</h2>
+                        </div>
+                        <div class="time">
+                            <div class="box"><span id="hour">00</span><span>Hours</span></div>
+                            <div class="box"><span id="minutes">00</span><span>Minutes</span></div>
+                            <div class="box"><span id="seconds">00</span><span>Seconds</span></div>
+                            <div class="box"><span id="section">pm</span></div>
+                        </div>
+                    </div>
+
+                    <div class="img-wraper">
+                        <div class="img-container">
+                            <div class="project-img" id="food-image" style="background-image: url('images/main.jpg');">
+                            </div>
+                            <h2><strong id="food-section"></strong></h2>
+                            <h2><span id="choicefood"></span><span id="food-section"></span></h2>
+                        </div>
+                    </div>
+                </div>
+            </section>
+        </main>
+        <footer>
+            <div class="footer">
+                <p class="copyright">copyright &copy; Onyekachi Okwuolisa. all rights reserved. <span><a href="https://wa.me/2348187266721?text=Hello%20Kachi" title="chat with me on WhatSapp" target="_blank">Chat me</a></span></p>
+            </div>
+        </footer>
+    <script src="stylesheet/js/main.js"></script>
+</body>
+</html>
