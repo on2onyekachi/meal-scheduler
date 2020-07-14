@@ -19,11 +19,15 @@
         let todate  = date.getDate();
             //  whole day format. 
         let tdate =  day + " " + todate + " " +  month + ", " + year;
-        console.log(tdate);
         showday.innerHTML =tdate;
     }
 
     showDate();
+    let h;
+    let m;
+    let s;
+    let sd;
+    // to set to 12 ho
 
     function showClock() {
         const  hour         = document.querySelector("#hour");
@@ -32,10 +36,10 @@
         const  section      = document.querySelector("#section");
 
         const date = new Date( );
-        let h    = date.getHours();
-        let m    = date.getMinutes();
-        let s    = date.getSeconds();
-        let sd   =  'am';
+        h    = date.getHours();
+        m    = date.getMinutes();
+        s    = date.getSeconds();
+        sd   =  'am';
         // to set to 12 hours clock.
         if(h > 12) {
             h = h - 12;
@@ -46,8 +50,8 @@
         m = (m < 10) ? "0" + m : m;
         s = (s < 10) ? "0" + s : s;
 
-        // console.log(h, m, s, sd);
-        showImage(h, m, s, sd);
+        // showImage(m,sd);
+        // console.log(m , 'showClock', sd);
 
         hour.innerHTML = h;
         minute.innerHTML = m;
@@ -58,29 +62,30 @@
     }
     showClock()
     
-    function showImage(h, m, s, sd) {
-        const  image        = document.querySelector("#food-image");
-        const  foodsec      = document.querySelector("#food-section");
-
-        // image setup
-        image.style.backgroundImage = "url('images/main.jpg')";
-        foodt = '';
-        (h == 8 && sd == 'pm') && (image.style.backgroundImage = "url('images/food.jpg')")  ? foodt = 'breakfast time' : '';
-        (h == 14 && sd == 'am') && (image.style.backgroundImage = "url('images/food1.jpg')") ? foodt = 'lunch time'     : '';
-        (h == 20 && sd == 'am') && (image.style.backgroundImage = "url('images/food2.jpg')") ? foodt = 'dinner time'    : '';
-
-        foodsec.innerHTML = foodt;
-    }
-
+   
     let showError = document.querySelector("#error-message");
     let schduleObject = {};
 
     function checkDetail() {
         let  timeChoice          = document.querySelector("#time-choice").value;
         let  foodChoice          = document.querySelector("#food-choice").value;
-        console.log('food', foodChoice, timeChoice);
-        if(!timeChoice || !foodChoice ){
-            setErrorMesage(showError, 'Incorrect input');
+        let  foodSectionChoice   = document.querySelector("#food-section-choice").value;
+        var re = /^[A-Za-z]+$/;
+        // console.log('food', foodChoice, timeChoice);
+        if(!timeChoice || !foodChoice || !foodSectionChoice ){
+            setErrorMesage(showError, 'Incomplete input');
+            return false;
+        }
+        if(timeChoice.length > 2){
+            setErrorMesage(showError, 'invalid time');
+            return false;
+        }
+        if(timeChoice < 1 || timeChoice > 12){
+            setErrorMesage(showError, 'time should be between 1 and 12');
+            return false;
+        }
+        if(!re.test(foodChoice)){
+            setErrorMesage(showError, 'invalid food name');
             return false;
         }
         else{
@@ -90,16 +95,14 @@
     }
     function setErrorMesage(showError, message){
         showError.innerHTML = message;
-        console.log(showError);
         showError.className = "error h5";
     }
     function setSuccessMesage(showError, message){
         showError.innerHTML = message;
-        console.log(showError);
         showError.className = "success h5";
     }
     
-
+console
     function init() {
         document.querySelector("#table-body").innerHTML = ''
         if(localStorage.foodStorage){
@@ -111,6 +114,8 @@
                 let  timeChoice          = schduleObject[index].timechoice;
                 
                 tableCellData(timeChoice, sectionChoice, foodSectionChoice, foodChoice);
+                // showImage(timeChoice, sectionChoice, foodChoice, foodSectionChoice);
+                // console.log('init', timeChoice, sectionChoice, foodChoice, foodSectionChoice);
             }
         }
     }
@@ -121,7 +126,6 @@
         let  foodChoice          = document.querySelector("#food-choice").value;
         let  sectionChoice       = document.querySelector("#section-choice").value;
         let  timeChoice          = document.querySelector("#time-choice").value;
-        console.log(foodSectionChoice, foodChoice, sectionChoice, timeChoice);
 
         let schduleObj = { timechoice: timeChoice, sectionchoice: sectionChoice, foodchoice: foodChoice, foodsectionchoice: foodSectionChoice, };
         schduleObject[myindex]=schduleObj
@@ -129,6 +133,8 @@
         tableCellData(timeChoice, sectionChoice, foodSectionChoice, foodChoice);
         document.querySelector("#food-choice").value = '';
         document.querySelector("#section-choice").selectIndex = 0;
+        // showImage(timeChoice, sectionChoice, foodChoice, foodSectionChoice);
+        // console.log('addtoshc', timeChoice, sectionChoice, foodChoice, foodSectionChoice);
     }
 
     function tableCellData(timeChoice, sectionChoice, foodChoice, foodSectionChoice){
@@ -144,10 +150,31 @@
         firstCell.innerHTML     = foodSectionChoice;
         secondCell.innerHTML    = foodChoice;
         thirdCell.innerHTML     = timeChoice + sectionChoice;
-        forthCell.innerHTML     = `<button onclick="editClick()"; class="edit-button">Edit</button><br/><button onclick="deleteRow(${myindex})"; class="delete-button">Delete</button>`;
-        console.log('index: ',myindex)
-        myindex = myindex + 1
+        forthCell.innerHTML     = `<button onclick="deleteRow(${myindex})"; class="delete-button">Delete</button>`;
+        myindex = myindex + 1;
+        showImage(timeChoice, sectionChoice, foodChoice, foodSectionChoice);
+        console.log('tableCell', timeChoice, sectionChoice, foodChoice, foodSectionChoice);
     }
+
+    function showImage(timeChoice, sectionChoice, foodSectionChoice , foodChoice) {
+        const  image        = document.querySelector("#food-image");
+        const  foodsec      = document.querySelector("#food-section");
+        const  choiceFood      = document.querySelector("#choicefood");
+        console.log('showImage suuu', timeChoice, sectionChoice, foodSectionChoice  , foodChoice, );
+        console.log('showImage time', m , sd);
+        console.log('showImage time all', h, m, s, sd, hour,)
+        // image setup
+        image.style.backgroundImage = "url('images/main.jpg')";
+        foodt = '';
+        let isTime = (9 == timeChoice && sd == sectionChoice) ;
+        (isTime) && (sd == 'am') && (image.style.backgroundImage = "url('images/food.jpg')")  ? foodt = foodSectionChoice + ' time' : '';
+        (isTime) && (sd == 'pm') && (image.style.backgroundImage = "url('images/food1.jpg')")  ? foodt = foodSectionChoice + ' time' : '';
+        (isTime) && (sd == 'pm' && timeChoice > 7) && (image.style.backgroundImage = "url('images/food2.jpg')")  ? foodt = foodSectionChoice + ' time' : '';
+
+        foodsec.innerHTML = foodt;
+        choiceFood.innerHTML = 'Currently eating ' + foodChoice;
+    }
+
 
     function deleteRow(rowid)  {  
         var row = document.getElementById(rowid);

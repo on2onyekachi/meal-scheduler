@@ -31,10 +31,9 @@
                                         <option value="pm">PM</option>
                                     </select>
                                 </div>
-                                <input id="food-choice" type="" class="input"  maxlength="10" placeholder="Type in food. e.g rice">
+                                <input id="food-choice" type="" class="input"  maxlength="23" pattern="[a-zA-Z]" placeholder="Type in food. e.g rice">
                                 <select name="FOOD" id="food-section-choice" class="input">
-                                    <option selected></option>
-                                    <option value="breakfast">Breeakfast</option>
+                                    <option selected value="breakfast">Breeakfast</option>
                                     <option value="lunch">Lunch</option>
                                     <option value="dinner">Dinner</option>
                                 </select>
@@ -74,8 +73,8 @@
                         <div class="img-container">
                             <div class="project-img" id="food-image" style="background-image: url('images/main.jpg');">
                             </div>
-                            <h2><strong id="food-section"></strong></h2>
-                            <h2><span id="choicefood"></span><span id="food-section"></span></h2>
+                            <h2><strong id="food-section"><span></span></strong></h2>
+                            <h2 class="show-line"><span id="choicefood"></span></h2>
                         </div>
                     </div>
                 </div>
