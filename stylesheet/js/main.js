@@ -1,4 +1,7 @@
-     
+    let h;
+    let m;
+    let s;
+    let sd;
     function showDate() {
         const  showday      = document.querySelector("#showDate");
 
@@ -23,10 +26,6 @@
     }
 
     showDate();
-    let h;
-    let m;
-    let s;
-    let sd;
 
     function showClock() {
         const  hour         = document.querySelector("#hour");
@@ -126,8 +125,6 @@
         tableCellData(timeChoice, sectionChoice, foodSectionChoice, foodChoice);
         document.querySelector("#food-choice").value = '';
         document.querySelector("#section-choice").selectIndex = 0;
-        // showImage(timeChoice, sectionChoice, foodChoice, foodSectionChoice);
-        // console.log('addtoshc', timeChoice, sectionChoice, foodChoice, foodSectionChoice);
     }
 
     function tableCellData(timeChoice, sectionChoice, foodChoice, foodSectionChoice){
@@ -146,23 +143,20 @@
         forthCell.innerHTML     = `<button onclick="deleteRow(${myindex})"; class="delete-button">Delete</button>`;
         myindex = myindex + 1;
         showImage(timeChoice, sectionChoice, foodChoice, foodSectionChoice);
-        console.log('tableCell', timeChoice, sectionChoice, foodChoice, foodSectionChoice);
     }
 
     function showImage(timeChoice, sectionChoice, foodSectionChoice , foodChoice) {
         const  image        = document.querySelector("#food-image");
         const  foodsec      = document.querySelector("#food-section");
         const  choiceFood      = document.querySelector("#choicefood");
-        console.log('showImage suuu', timeChoice, sectionChoice, foodSectionChoice  , foodChoice, );
         // image setup
         image.style.backgroundImage = "url('images/main.jpg')";
         foodt = '';
         foods = '';
         let isTime = (h == timeChoice && sd == sectionChoice) ;
-        let theMessage = (foodt = foodSectionChoice + ' time') && (foods = 'Currently eating ' + foodChoice);
-        (isTime) && (sd == 'am') && (image.style.backgroundImage = "url('images/food.jpg')")  ? theMessage : '';
-        (isTime) && (sd == 'pm') && (image.style.backgroundImage = "url('images/food1.jpg')")  ? theMessage : '';
-        (isTime) && (sd == 'pm' && timeChoice > 7) && (image.style.backgroundImage = "url('images/food2.jpg')")  ? theMessage : '';
+        (isTime) && (sd == 'am') && (image.style.backgroundImage = "url('images/food.jpg')")  ? (foodt = foodSectionChoice + ' time') && (foods = 'Currently eating ' + foodChoice) : '';
+        (isTime) && (sd == 'pm') && (image.style.backgroundImage = "url('images/food1.jpg')")  ? (foodt = foodSectionChoice + ' time') && (foods = 'Currently eating ' + foodChoice) : '';
+        (isTime) && (sd == 'pm' && timeChoice > 7) && (image.style.backgroundImage = "url('images/food2.jpg')")  ? (foodt = foodSectionChoice + ' time') && (foods = 'Currently eating ' + foodChoice) : '';
 
         foodsec.innerHTML = foodt;
         choiceFood.innerHTML = foods;

@@ -301,6 +301,7 @@ thead {
 .button-wraper button:hover{
     background-color:  #d61284;
 }
+/* footer */
 footer{
     margin-top: 5rem;
     padding: 0 1rem;
@@ -319,7 +320,7 @@ footer{
 .copyright a{
     color: darkgray;
 }
-
+/* Responsiveness */
 @media(max-width: 991px){
     .text-container h1{
         letter-spacing: 0.2em;
