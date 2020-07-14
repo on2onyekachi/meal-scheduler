@@ -79,12 +79,12 @@
         let  timeChoice          = document.querySelector("#time-choice").value;
         let  foodChoice          = document.querySelector("#food-choice").value;
         console.log('food', foodChoice, timeChoice);
-        if(timeChoice  == '' || foodChoice == '' ){
-            setErrorMesage(showError, 'Input cannot be blank');
+        if(!timeChoice || !foodChoice ){
+            setErrorMesage(showError, 'Incorrect input');
             return false;
         }
         else{
-            setErrorMesage(showError, 'added successfully');
+            setSuccessMesage(showError, 'added successfully');
             return true;
         }
     }
@@ -92,6 +92,11 @@
         showError.innerHTML = message;
         console.log(showError);
         showError.className = "error h5";
+    }
+    function setSuccessMesage(showError, message){
+        showError.innerHTML = message;
+        console.log(showError);
+        showError.className = "success h5";
     }
     
 
@@ -153,8 +158,9 @@
 
     function addClick (event) {
         event.preventDefault();
-        addToSchdule();
-        checkDetail();
+        if (checkDetail()){
+            addToSchdule();
+        };
      }
 
      function clearStrorage() {
