@@ -65,7 +65,7 @@
         let  timeChoice          = document.querySelector("#time-choice").value;
         let  foodChoice          = document.querySelector("#food-choice").value;
         let  foodSectionChoice   = document.querySelector("#food-section-choice").value;
-        var re = /^[A-Za-z]+$/;
+
         if(!timeChoice || !foodChoice || !foodSectionChoice ){
             setErrorMesage(showError, 'Incomplete input');
             return false;
@@ -78,7 +78,7 @@
             setErrorMesage(showError, 'time should be between 1 and 12');
             return false;
         }
-        if(!re.test(foodChoice)){
+        if(!isNaN(foodChoice)){
             setErrorMesage(showError, 'invalid food name');
             return false;
         }
