@@ -1,2 +1,2 @@
 # meal-scheduler
-A meal schdedule project.
+A meal schedule project.
